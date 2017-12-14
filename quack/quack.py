@@ -91,6 +91,11 @@ def _fetch_modules(config, specific_module=None):
         else:
             hexsha = ' (' + sub_module.hexsha + ')'
 
+        if module[1].get('update_submodules'):
+            subprocess.call(
+                ['git', 'submodule', 'update', '--init', '--recursive'],
+                cwd=modules + '/' + module[0])
+
         path = module[1].get('path', '')
         from_path = '%s/%s/%s' % (modules, module[0], path)
         is_exists = os.path.exists(from_path)
@@ -108,7 +113,7 @@ def _fetch_modules(config, specific_module=None):
             print('%s folder does not exists. Skipped.' % path)
 
         # Remove submodule.
-        sub_module.remove()
+        sub_module.remove(force=True)
         if os.path.isfile('.gitmodules'):
             subprocess.call('rm .gitmodules'.split())
             subprocess.call('git rm --quiet --cached .gitmodules'.split())
@@ -183,7 +188,7 @@ def _run_tasks(config, profile):
             _run_nested_quack(('quack', command.replace('quack:', '')))
         elif is_cmd:
             cmd = command.replace('cmd:', '')
-            subprocess.call(cmd.split())
+            subprocess.call(cmd, shell=True)
 
         if is_modules and not is_negate:
             _fetch_modules(config, module)
