@@ -33,7 +33,7 @@ This method will always include the latest features, but sometimes will not work
 
 Clone the repo, then use setup.py to install the package. Note, this process will differ only slightly in a non-bash shell.
 ```fish
-$ git clone https://github.com/zonito/quack.git
+$ git clone https://github.com/roxiemobile-forks/quack.git
 $ cd quack
 $ python setup.py install
 ```
@@ -85,7 +85,7 @@ Add a file called quack.yaml to the root of your project. The pre-commit config 
 | **description** | Project description (Optional)                                  |
 | **version**     | Project version (Optional)                                      |
 | **gitignore**   | Update git ignore for sub module included (Optional, default: true)  |
-| **modules**     | Declared modules used within your project. <ul><li>`folder name`:</li><ul><li>`repository`: Git repository url.</li><li>`path`: module path within given git repository</li><li>`branch`: provide branch name to checkout from git repository.</li><li>`hexsha`: Provide sha1 key to checkout till specific commits</li><li>`tag`: Provide tag to checkout till specific release tag</li><li>`isfile`: Copy file instead of creating folder.</li></ul>|
+| **modules**     | Declared modules used within your project. <ul><li>`folder name`:</li><ul><li>`repository`: git repository url;</li><li>`path`: module path within given git repository;</li><li>`branch`: provide branch name to checkout from git repository;</li><li>`hexsha`: provide sha1 key to checkout till specific commits;</li><li>`tag`: provide tag to checkout till specific release tag;</li><li>`isfile`: copy file instead of creating folder;</li><li>`update_submodules`: update related submodules after checkout from git repository.</li></ul>|
 | **profiles**    | List of profiles for keep things separate for different stuffs. <ul><li> `task_name`: Default task (`init` task mandatory) </li> <ul><li>`tasks`: List of tasks or execute nested quack. </li><li>`dependencies`: List of dependencies before executing tasks</li><ul><li>`quack`: Nested quack. (Syntax: `module/quack_config.yaml:profile_name`)</li></ul></ul></ul>|
 
 ##### Command
