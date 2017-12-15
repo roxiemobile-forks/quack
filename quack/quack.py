@@ -153,7 +153,7 @@ def _run_nested_quack(dependency):
     if colon_index > 0:
         command.append('-y')
         command.append(quack[slash_index + 1:colon_index])
-    print('Quack..' + module)
+    print('Quack: ' + module)
     git.Repo.init(module)
     subprocess.call(command, cwd=module)
     _remove_dir(module + '/.git')
