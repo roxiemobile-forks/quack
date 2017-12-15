@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='quack',
-    version='0.1.1-patch.1',
+    version='0.1.1.post2',
     packages=['quack'],
 
     # dependencies
@@ -22,7 +22,7 @@ setup(
     license='MIT',
     keywords='quack build submodule module dependencies'.split(),
     url='https://github.com/roxiemobile-forks/quack',  # project homepage
-    download_url='https://github.com/roxiemobile-forks/quack/archive/0.1.1-patch.1.tar.gz',
+    download_url='https://github.com/roxiemobile-forks/quack/archive/0.1.1.post2.tar.gz',
 
     entry_points={
         'console_scripts': [
