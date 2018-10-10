@@ -106,9 +106,7 @@ def _fetch_modules(config, specific_module=None):
                 shutil.copyfile(from_path, module[0])
             else:
                 _remove_dir(module[0])
-                shutil.copytree(
-                    from_path, module[0],
-                    ignore=shutil.ignore_patterns('.git*'))
+                shutil.copytree(from_path, module[0], True, shutil.ignore_patterns('.git*'))
         elif not is_exists:
             print('%s folder does not exists. Skipped.' % path)
 
